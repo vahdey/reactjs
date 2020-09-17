@@ -25,7 +25,6 @@ class App extends Component {
                             <Route path="/product/:id" component={Product}/>
                             <Route path="/about" component={About}/>
                             <Route path="/contact" component={Contact}/>
-                            <Route path="/user-panel" component={Contact}/>
                             <Route path="/login" component={Login}/>
                             <Route component={NoMatch}/>
                         </Switch>
