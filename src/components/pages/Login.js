@@ -28,7 +28,7 @@ class Login extends Component {
             errors["email"] = "فرمت ایمیل اشتباه است";
         }
 
-        // password
+        // Email
         if(validator.isEmpty(fields.password)) {
             formIsValid = false;
             errors["password"] = "فیلد پسورد نمیتواند خالی بماند";
@@ -59,6 +59,7 @@ class Login extends Component {
         axios.post('http://roocket.org/api/login' , data)
             .then(response => {
                 localStorage.setItem('api_token' , response.data.data.api_token);
+                this.props.history.push('/')
             })
             .catch(error => {
                 console.log(error)

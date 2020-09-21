@@ -4,6 +4,7 @@ import NavItem from "../NavItem";
 
 class Header extends Component {
     render() {
+        const { auth : isAuthenticated } = this.props;
         return (
             <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
                 <div className="container">
@@ -17,7 +18,17 @@ class Header extends Component {
                             <NavItem to="/contact">Contact</NavItem>
                         </ul>
                         <div className="my-2 my-lg-0">
-                            <Link className="btn btn-success" to="/login">Login</Link>
+                            {
+                                isAuthenticated
+                                    ? (
+                                        <div>
+                                            <Link className="btn btn-success" to="/user-panel">User Panel</Link>
+                                            <button className="btn btn-warning" style={{ marginLeft : 10}}>Logout</button>
+                                        </div>
+                                    ) : (
+                                        <Link className="btn btn-success" to="/login">Login</Link>
+                                    )
+                            }
 
                         </div>
                     </div>
